@@ -14,7 +14,7 @@ public class FileWriterUtil {
             for (Student student : students) {
                 for (Course course : student.getCourses()) {
                     writer.write(String.format("%-10s | %-20s | %-12s | %5.1f | %n",
-                            student.getStudentId(),
+                            student.getId(),
                             student.getName(),
                             course.getCourseCode(),
                             course.calculateFinalGrade()));
