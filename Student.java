@@ -29,4 +29,13 @@ public class Student {
     public void addCourse(Course course) {
         courses.add(course);
     }
+
+    public boolean hasCourse(String courseCode) {
+        for (Course c : courses) {
+            if (c.getCourseCode().equalsIgnoreCase(courseCode)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

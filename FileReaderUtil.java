@@ -25,6 +25,11 @@ public class FileReaderUtil {
                     continue;
                 }
 
+                if (studentMap.containsKey(id)) {
+                    System.err.println("Duplicate student ID in name file: " + id);
+                    continue;
+                }
+
                 studentMap.put(id, new Student(id, name));
             }
         }
@@ -61,7 +66,14 @@ public class FileReaderUtil {
                     double finalExam = Double.parseDouble(parts[5].trim());
 
                     Course course = new Course(courseCode, test1, test2, test3, finalExam);
-                    studentMap.get(id).addCourse(course);
+
+                    Student student = studentMap.get(id);
+                    if (student.hasCourse(courseCode)) {
+                        System.err.println("Duplicate course for student " + id + ": " + courseCode);
+                        continue;
+                    }
+
+                    student.addCourse(course);
                 } catch (NumberFormatException e) {
                     System.err.println("Invalid grade value in line: " + line);
                 }
