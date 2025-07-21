@@ -4,13 +4,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         // Fail-fast usage check
-        if (args.length != 2) {
-            System.err.println("Usage: java Main <NameFile> <CourseFile>");
-            System.exit(1);
+        String nameFile, courseFile;
+        if (args.length == 2) {
+            nameFile = args[0];
+            courseFile = args[1];
+        } else {
+            // fallback: use default filenames in working directory
+            nameFile = "NameFile.txt";
+            courseFile = "CourseFile.txt";
+            System.out.println("No args passed—using defaults: "
+                    + nameFile + ", " + courseFile);
         }
-
-        String nameFile = args[0];
-        String courseFile = args[1];
 
         try {
             Map<String, Student> students = FileReaderUtil.readNameFile(nameFile);
