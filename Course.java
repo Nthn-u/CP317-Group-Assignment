@@ -16,6 +16,6 @@ public class Course {
     }
 
     public double calculateFinalGrade() {
-        return Math.round((test1 * 0.2 + test2 * 0.2 + test3 * 0.2 + finalExam * 0.4) * 10.0) / 10.0;
+        return test1 * 0.2 + test2 * 0.2 + test3 * 0.2 + finalExam * 0.4;
     }
 }

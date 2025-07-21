@@ -1,6 +1,7 @@
+// Person.java
 public abstract class Person {
-    protected String id;
-    protected String name;
+    private String id;
+    private String name;
 
     public Person(String id, String name) {
         this.id = id;
